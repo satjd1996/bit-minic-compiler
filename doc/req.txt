@@ -1,0 +1,32 @@
+if-else  
+while-continue-break-goto-do
+return
+int char const struct (string)
+{ }
+[ ]
+( )
+" "
+' '
+.
+= == 
++ ++ +=
+- -- -=
+*  *=
+/ /=
+% %=
+< << <=
+> >> >=
+& | ~ && || !
+? :
+  
+
+=============================
+value:
+
+
+int:123 
+string:abc \" 
+char:a \'
+
+
+ 

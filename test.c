@@ -1,4 +1,5 @@
 int main(int a, int b){	//main function
-    	//char* abc;
-	return a + b;
+if(a>b);
+    	char* abc;
+	return a+b;
 } 
