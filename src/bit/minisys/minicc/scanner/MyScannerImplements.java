@@ -23,8 +23,6 @@ public class MyScannerImplements implements  IMiniCCScanner {
     private int wordNum = 0;
 
     private void scan() throws FileNotFoundException {
-        //BufferedReader reader = new BufferedReader(new FileReader("test2.c"));
-        //BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(outputStream));
 
         String nextLine;
 
@@ -174,6 +172,85 @@ public class MyScannerImplements implements  IMiniCCScanner {
                             endIndex++;
 
                         }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    //& &&
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("&")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("&")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    //| ||
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\|")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("\\|")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // !
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("!")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // ~
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("~")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // ? :
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("[?]")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    else if(nextLine.substring(endIndex,endIndex+1).matches(":")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // {
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\{")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // }
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\}")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // [
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\[")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // ]
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\]")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // (
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\(")) {
+                        endIndex++;
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // )
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\)")) {
+                        endIndex++;
                         Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
                         t.writeXML(outputXML.getRootElement());
                     }
