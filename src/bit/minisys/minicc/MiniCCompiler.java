@@ -121,7 +121,7 @@ public class MiniCCompiler {
 					method.invoke(c.newInstance(), ppOutFile, scOutFile);
 				}else{
 					MyScannerImplements myScanner = new MyScannerImplements();
-					myScanner.run(ppOutFile, scOutFile);
+					myScanner.run(cFile, scOutFile);
 				}
 			}else if(pp.type.equals("python")){
 				this.runPy(ppOutFile, scOutFile, scanning.path);
