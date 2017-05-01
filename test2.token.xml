@@ -3,65 +3,58 @@
 <project name="test.l">
   <token>
     <number>0</number>
-    <value>01234</value>
-    <type>const_i</type>
+    <value>+</value>
+    <type>operator</type>
     <line>1</line>
     <valid>true</valid>
   </token>
   <token>
     <number>1</number>
-    <value>0xddd</value>
-    <type>const_i</type>
+    <value><</value>
+    <type>operator</type>
     <line>1</line>
     <valid>true</valid>
   </token>
   <token>
     <number>2</number>
-    <value>"\nhello world\t"</value>
-    <type>stringLiteral</type>
-    <line>2</line>
+    <value>+=</value>
+    <type>operator</type>
+    <line>1</line>
     <valid>true</valid>
   </token>
   <token>
     <number>3</number>
-    <value>122222</value>
-    <type>const_i</type>
-    <line>3</line>
+    <value>-</value>
+    <type>operator</type>
+    <line>2</line>
     <valid>true</valid>
   </token>
   <token>
     <number>4</number>
-    <value>_variable</value>
-    <type>identifier</type>
-    <line>4</line>
+    <value>--</value>
+    <type>operator</type>
+    <line>2</line>
     <valid>true</valid>
   </token>
   <token>
     <number>5</number>
-    <value>0x33ff</value>
-    <type>const_i</type>
-    <line>4</line>
+    <value>-=</value>
+    <type>operator</type>
+    <line>2</line>
     <valid>true</valid>
   </token>
   <token>
     <number>6</number>
-    <value>_abcde000</value>
-    <type>identifier</type>
-    <line>5</line>
+    <value>*</value>
+    <type>operator</type>
+    <line>3</line>
     <valid>true</valid>
   </token>
   <token>
     <number>7</number>
-    <value>123</value>
-    <type>const_i</type>
-    <line>6</line>
-    <valid>true</valid>
-  </token>
-  <token>
-    <number>8</number>
-    <value>0x2233ff</value>
-    <type>const_i</type>
-    <line>7</line>
+    <value>*=</value>
+    <type>operator</type>
+    <line>3</line>
     <valid>true</valid>
   </token>
 </project>

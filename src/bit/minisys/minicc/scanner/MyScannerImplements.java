@@ -126,9 +126,59 @@ public class MyScannerImplements implements  IMiniCCScanner {
                         Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_STRING,lineNum,true);
                         t.writeXML(outputXML.getRootElement());
                     }
+                    //+ ++ +=
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\+")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("\\+|=")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    //- -- -=
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("-")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("-|=")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    //* *=
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("\\*")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("=")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    // / /=
+                    //TODO fix bugs in pp.jar to support /
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("/")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("=")) {
+                            endIndex++;
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
+                    //% %=
+                    //TODO fix bugs in pp.jar to support %
+                    else if(nextLine.substring(endIndex,endIndex+1).matches("%")) {
+                        endIndex++;
+                        if(nextLine.substring(endIndex,endIndex+1).matches("=")) {
+                            endIndex++;
+
+                        }
+                        Token t = new Token(wordNum++,nextLine.substring(beginIndex,endIndex).trim(),TokenType.TOKEN_TYPE_OPERATOR,lineNum,true);
+                        t.writeXML(outputXML.getRootElement());
+                    }
                     else endIndex++;
                     indexOfLine = endIndex;
-
                 }
 
             }
