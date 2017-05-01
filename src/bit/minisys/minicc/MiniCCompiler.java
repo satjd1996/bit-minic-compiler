@@ -1,31 +1,26 @@
 package bit.minisys.minicc;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
+import bit.minisys.minicc.codegen.MiniCCCodeGen;
+import bit.minisys.minicc.icgen.MiniCCICGen;
+import bit.minisys.minicc.optimizer.MiniCCOptimizer;
+import bit.minisys.minicc.parser.MiniCCParser;
+import bit.minisys.minicc.pp.MiniCCPreProcessor;
+import bit.minisys.minicc.scanner.MyScannerImplements;
+import bit.minisys.minicc.semantic.MiniCCSemantic;
+import bit.minisys.minicc.simulator.MIPSSimulator;
 import org.python.util.PythonInterpreter;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.lang.reflect.Method;
 
-
-
-
-import bit.minisys.minicc.codegen.MiniCCCodeGen;
-import bit.minisys.minicc.icgen.MiniCCICGen;
-import bit.minisys.minicc.optimizer.MiniCCOptimizer;
-import bit.minisys.minicc.scanner.MiniCCScanner;
-import bit.minisys.minicc.semantic.MiniCCSemantic;
-import bit.minisys.minicc.parser.MiniCCParser;
-import bit.minisys.minicc.pp.MiniCCPreProcessor;
 //import bit.minisys.minicc.scanner.MiniCCScannerInternal;
-import bit.minisys.minicc.simulator.MIPSSimulator;
 
 public class MiniCCompiler {
 	MiniCCCfg pp = new MiniCCCfg();
@@ -125,8 +120,8 @@ public class MiniCCompiler {
 					Method method = c.getMethod("run", String.class, String.class);
 					method.invoke(c.newInstance(), ppOutFile, scOutFile);
 				}else{
-					MiniCCScanner sc = new MiniCCScanner();
-					sc.run(ppOutFile, scOutFile);
+					MyScannerImplements myScanner = new MyScannerImplements();
+					myScanner.run(ppOutFile, scOutFile);
 				}
 			}else if(pp.type.equals("python")){
 				this.runPy(ppOutFile, scOutFile, scanning.path);
@@ -244,11 +239,11 @@ public class MiniCCompiler {
 	}
 	
 	private void run(String iFile, String oFile, String path) throws IOException{
-		Runtime rt = Runtime.getRuntime();//格式：exe名 输入文件 输出文件
+		Runtime rt = Runtime.getRuntime();//赂帽脢陆拢潞exe脙没 脢盲脠毛脦脛录镁 脢盲鲁枚脦脛录镁
 		rt.exec(path + " " + iFile + " " + oFile);
 	}
 	private void runPy(String iFile, String oFile, String path) throws IOException{
-		PythonInterpreter pyi = new PythonInterpreter();//格式：Python脚本名 输入文件 输出文件
+		PythonInterpreter pyi = new PythonInterpreter();//赂帽脢陆拢潞Python陆脜卤戮脙没 脢盲脠毛脦脛录镁 脢盲鲁枚脦脛录镁
 		pyi.exec(path + " " + iFile + " " + oFile);
 	}
 }
