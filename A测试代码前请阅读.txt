@@ -1,0 +1,10 @@
+实验生成的所有二进制.class文件全部在out目录下（而不是之前的bin目录）
+
+测试方法
+1.在config.xml中跳过词法分析后的所有步骤。
+2.运行out目录下的MyCC.jar(命令行参数格式和BitMiniCC.jar相同)
+
+环境要求：
+JRE 1.7及以上。如需要打开项目，需要Intellij IDEA 2015.2及以上版本
+
+若项目文件或实验报告损坏，请到https://github.com/satjd1996/bit-minic-compiler/tree/dev-s下载最新版本。

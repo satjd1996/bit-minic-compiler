@@ -32,6 +32,8 @@ public class MyScannerImplements implements  IMiniCCScanner {
             {
                 lineNum++;
                 int indexOfLine = 0;
+
+                //append # to the end of each line to avoid out of bound exception.
                 nextLine = nextLine.concat("#");
 
 
@@ -337,6 +339,8 @@ public class MyScannerImplements implements  IMiniCCScanner {
         initXML();
         scan();
         writeXML();
+
+        System.out.println("2. My Scanner");
 
 
     }

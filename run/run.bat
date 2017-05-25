@@ -1,1 +1,1 @@
-java -jar BITMiniCC.jar %1%
+java -jar MyCC.jar %1%
