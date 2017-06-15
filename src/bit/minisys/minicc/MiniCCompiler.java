@@ -3,7 +3,7 @@ package bit.minisys.minicc;
 import bit.minisys.minicc.codegen.MiniCCCodeGen;
 import bit.minisys.minicc.icgen.MiniCCICGen;
 import bit.minisys.minicc.optimizer.MiniCCOptimizer;
-import bit.minisys.minicc.parser.MiniCCParser;
+import bit.minisys.minicc.parser.MyParserImplements;
 import bit.minisys.minicc.pp.MiniCCPreProcessor;
 import bit.minisys.minicc.scanner.MyScannerImplements;
 import bit.minisys.minicc.semantic.MiniCCSemantic;
@@ -140,8 +140,11 @@ public class MiniCCompiler {
 					Method method = c.getMethod("run", String.class, String.class);
 					method.invoke(c.newInstance(), scOutFile, pOutFile);
 				}else{
-					MiniCCParser p = new MiniCCParser();
-					p.run(scOutFile, pOutFile);
+					/*MiniCCParser p = new MiniCCParser();
+					p.run(scOutFile, pOutFile);*/
+					MyParserImplements myParser = new MyParserImplements();
+                    myParser.run(scOutFile,pOutFile);
+
 				}
 			}else if(pp.type.equals("python")){
 				this.runPy(scOutFile, pOutFile, parsing.path);

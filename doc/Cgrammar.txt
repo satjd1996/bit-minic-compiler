@@ -1,0 +1,31 @@
+BNF描述的C语言子集文法：
+包含：
+1.全局变量声明
+2.全局函数声明
+3.全局函数定义
+4.赋值语句
+5.分支语句
+6.循环语句
+7.返回语句
+8.局部变量声明
+
+program : compileUnit program | ε
+compileUnit :  typeDef ID postfix 
+postfix : ; | ( params ) codeBlock ;
+typeDef : INT|VOID|CHAR|FLOAT
+params : typeDef ID remainParams | ε
+remainParams : , params | ε //消除了文法的左递归
+codeBlock : { statements }
+statements : statement statements | ε
+statement : returnstatement ; | loopstatement | branchstatement | assignmentstatement ;| localVariablestatement ;
+returnstatement : RETURN expression
+loopstatement : WHILE ( expression ) codeBlock
+branchstatement : IF ( expression ) codeBlock otherBranch
+otherBranch : ELSE codeBlock | ε
+assignmentstatement : ID = expression
+localVariablestatement : typeDef ID ;
+expression : term expression2
+expression2 : + term expression2 | - term expression2 | ε
+term : factor term2
+term2 : * factor term2 | / factor term2 | ε
+factor : ID | CONST | ( expression )

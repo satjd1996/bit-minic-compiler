@@ -1,22 +1,13 @@
-int a = 1 ; 
+int a ; 
 int fun ( int a , int b ) 
  { 
- return a + b ; 
+ if ( 1 ) 
+ { 
+ return 0 ; 
  } 
-1 > > 2 
-2 <= 3 
-1 + 2 ; 
- + ++ += 
- - -- -= 
- * *= 
- & && | || ~ ! 
- { } 
- ( ) 
- [ ] 
-01234 0xddd 
-"\nhello world\t" 
-122222 
-_variable 0x33ff 
-_abcde000 
-123 
-0x2233ff 
+ while ( 1 ) 
+ { 
+ a = a + 1 ; 
+ } 
+ return 1 ; 
+ } 

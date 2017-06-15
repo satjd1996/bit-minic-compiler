@@ -5,28 +5,7 @@ import org.dom4j.Element;
 /**
  * Created by satjd on 2017/4/29.
  */
-enum TokenType {
 
-    TOKEN_TYPE_KEYWORD("keyword"),
-    TOKEN_TYPE_INDENTIFIER("identifier"),
-    TOKEN_TYPE_SEPRATOR("seprator"),
-    TOKEN_TYPE_CONSTINT("const_i"),
-    TOKEN_TYPE_CONSTCHAR("const_c"),
-    TOKEN_TYPE_STRING("stringLiteral"),
-    TOKEN_TYPE_OPERATOR("operator");
-
-    private String typeName;
-
-    private TokenType(String name) {
-        typeName = name;
-    }
-
-
-    @Override
-    public String toString() {
-        return typeName;
-    }
-}
 
 public class Token {
     private int number;
@@ -52,5 +31,25 @@ public class Token {
         token.addElement("line").addText(line+"");
         token.addElement("valid").addText(valid+"");
 
+    }
+
+    public int getNumber() {
+        return number;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public TokenType getType() {
+        return type;
+    }
+
+    public int getLine() {
+        return line;
+    }
+
+    public boolean isValid() {
+        return valid;
     }
 }
